@@ -37,7 +37,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (error) {
     if (/already|registered|exists/i.test(error.message)) return res.status(409).json({ erro: 'Esse usuário já existe. Escolha outro.' })
     console.error('signup: createUser falhou', error.message)
-    return res.status(500).json({ erro: 'Nao foi possível criar a cona ($error.message}).' })
+    return res.status(500).json({ erro: 'Nao foi possível criar a conta (${error.message}).' })
   }
   return res.status(201).json({ ok: true })
 }
